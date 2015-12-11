@@ -17,7 +17,7 @@
     </head>
     <body ng-controller="mainCtrl as main">
 		<h1>TODO</h1>
-		<input ng-model="todoText">
+		<input ng-model="todoText" placeholder="scrivi il tuo todo">
 		<button ng-click="main.addTodo(todoText)">Aggiungi</button>
 		<div ng-repeat="todo in main.todos | filter: { completed: main.filter }">
 			<input type="checkbox" 
@@ -29,7 +29,7 @@
 		</div>
 		<div>
 			<span>
-				{{ (main.todos | filter:{ completed: false }).length }} left</span>
+				{{ (main.todos | filter:{ completed: false }).length }} items left</span>
 			<button ng-class="{ active: main.filter == false }" 
 					ng-click="main.filter = false">
 					Active
