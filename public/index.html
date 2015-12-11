@@ -1,0 +1,49 @@
+<!doctype html>
+<html ng-app="meanDemo">
+    <head>
+        <title>todo</title>
+		<script src="components/angular/angular.js"></script>
+		<script src="app.js"></script>
+		<style>
+			.strike
+			{
+				text-decoration: line-through;
+			}
+			.active 
+			{
+				background-color: green;
+			}
+		</style>
+    </head>
+    <body ng-controller="mainCtrl as main">
+		<h1>TODO</h1>
+		<input ng-model="todoText">
+		<button ng-click="main.addTodo(todoText)">Aggiungi</button>
+		<div ng-repeat="todo in main.todos | filter: { completed: main.filter }">
+			<input type="checkbox" 
+				   ng-change="main.changeCompleted(todo)" 
+				   ng-model="todo.completed">
+			<label ng-class="{ strike: todo.completed }">
+				{{ todo.text }}
+			</label>
+		</div>
+		<div>
+			<span>
+				{{ (main.todos | filter:{ completed: false }).length }} left</span>
+			<button ng-class="{ active: main.filter == false }" 
+					ng-click="main.filter = false">
+					Active
+			</button>
+			<button ng-class="{ active: main.filter == true }" 
+					ng-click="main.filter = true">
+					Completed
+			</button>
+			<button ng-class="{ active: main.filter == undefined }" 
+					ng-click="main.filter = undefined">
+					All
+			</button>
+			<button ng-show="(main.todos | filter:{ completed: true }).length"
+					ng-click="main.clearCompleted()">Clear completed</button>
+		</div>
+	</body>
+</html>

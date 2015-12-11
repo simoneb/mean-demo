@@ -1,0 +1,21 @@
+{
+  "name": "mean-demo",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Simone Busoli <simone.busoli@gmail.com>"
+  ],
+  "license": "ISC",
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "angularjs#~1.4.8"
+  }
+}
